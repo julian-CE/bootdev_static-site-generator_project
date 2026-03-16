@@ -3,10 +3,10 @@ from generatepage import generate_page_recursive
 import sys
 
 def main():
-    basepath = sys.argv[1]
-    if not basepath:
-        basepath = "/"
-    copy_static("static", "public")
+    basepath = "/"
+    if len(sys.argv) > 1:
+        basepath = sys.argv[1]
+    copy_static("static", "docs")
     generate_page_recursive("./content", "template.html", "./docs", basepath)
 
 main()
