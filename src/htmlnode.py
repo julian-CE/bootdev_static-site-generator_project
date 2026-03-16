@@ -9,12 +9,12 @@ class HTMLNode():
         raise NotImplementedError("error: to_html not implemented")
     
     def props_to_html(self):
-        if not self.props: # Handles both None and {}
+        if not self.props:
             return ""
         string = ""
         for key in self.props:
             string += f' {key}="{self.props[key]}"'
-        return string + " " # Add that trailing space your tests want
+        return string + " "
     
     def __repr__(self):
         return f"HTMLNode({self.tag}, {self.value}, {self.children} {self.props})"
@@ -50,7 +50,4 @@ class ParentNode(HTMLNode):
         for child in self.children:
             content = content + child.to_html()
         return f"{opening_tag}{content}{closing_tag}"
-
-
-
     

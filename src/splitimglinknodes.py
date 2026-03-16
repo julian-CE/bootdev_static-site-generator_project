@@ -1,6 +1,7 @@
 from textnode import TextNode, TextType
 from re_handler import extract_markdown_images, extract_markdown_links
 from delimiter import split_nodes_delimiter
+from textnode import text_node_to_html_node
 
 def split_nodes_image(old_nodes):
     result = []

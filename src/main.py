@@ -1,14 +1,8 @@
-print("hello world")
-from textnode import TextNode, TextType
-from htmlnode import HTMLNODE, LeafNode, ParentNode
+from copystatic import copy_static
+from generatepage import generate_page_recursive
 
 def main():
-    print(TextNode("This is some anchor text", TextType.LINK, "https://www.boot.dev"))
-    grandchild = LeafNode("b", "grandchild")
-    child = ParentNode("span", [grandchild])
-    parent = ParentNode("div", [child])
-
-    print(parent.to_html())
-
+    copy_static("static", "public")
+    generate_page_recursive("./content", "template.html", "./public")
 
 main()
